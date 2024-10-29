@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password  # Remplace par un mot de passe fort
+      MYSQL_DATABASE: birthday_calendar     # Nom de la base de données
+      MYSQL_USER: your_username             # Remplace par ton nom d'utilisateur
+      MYSQL_PASSWORD: your_password          # Remplace par un mot de passe fort
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_network:
